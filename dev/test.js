@@ -2,26 +2,29 @@ const Blockchain = require('./blockchain');
 
 const bitcoin = new Blockchain();
 
+// Test Genesis block
+console.log(bitcoin);
+
 // Test hashBlock
 // Test proofOfWork
-const previousBlockHash = 'KJHDJHSKJHKHSJHDSJHDSHDKDHSD';
-const currentBlockData = [
-    {
-        amount: 10,
-        sender: 'SJKDHSKHDLSHDKSJD',
-        recipient: 'DHSDSDJSDGHJSGDHSD'
-    },
-    {
-        amount: 30,
-        sender: '3455SJKDHSK43534543HDLSHDKSJD',
-        recipient: '45DHSDSDJSDGH4354JSGDHSD'
-    },
-    {
-        amount: 200,
-        sender: '90909SJKDHSKHDLSHDKSJD',
-        recipient: '8878688DHSDSDJSDGHJSGDHSD'
-    }
-];
+// const previousBlockHash = 'KJHDJHSKJHKHSJHDSJHDSHDKDHSD';
+// const currentBlockData = [
+//     {
+//         amount: 10,
+//         sender: 'SJKDHSKHDLSHDKSJD',
+//         recipient: 'DHSDSDJSDGHJSGDHSD'
+//     },
+//     {
+//         amount: 30,
+//         sender: '3455SJKDHSK43534543HDLSHDKSJD',
+//         recipient: '45DHSDSDJSDGH4354JSGDHSD'
+//     },
+//     {
+//         amount: 200,
+//         sender: '90909SJKDHSKHDLSHDKSJD',
+//         recipient: '8878688DHSDSDJSDGHJSGDHSD'
+//     }
+// ];
 
 // Test hashBlock result
 //const nonce = 100;
