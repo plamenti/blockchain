@@ -16,4 +16,7 @@ npm i sha256 --save
 Used npm libraries:
 
 1. [sha256](https://www.npmjs.com/package/sha256) - to convert the data into sha256 hash
-1. [express](https://www.npmjs.com/package/express) - to build a server for an API 
+1. [express](https://www.npmjs.com/package/express) - to build a server for an API. In order to start the server:
+```
+$ node dev/api.js
+```
