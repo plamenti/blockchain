@@ -36,3 +36,5 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 ```
 *For more information check [body-parser](https://www.npmjs.com/package/body-parser)!*
+
+5. [uuid](https://www.npmjs.com/package/uuid) - to create some unique values.
