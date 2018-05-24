@@ -20,3 +20,11 @@ Used npm libraries:
 ```
 $ node dev/api.js
 ```
+3. [nodemon](https://www.npmjs.com/package/nodemon) - to watch for file changes and automatically to restart your node application if there is any.
+
+*In **package.json** in object **scripts** add "start": "nodemon --watch dev -e js dev/api.js". This mean that when **start** command is run in the console nodemon will **watch** the **dev** folder for any change made in file with **js** extension. When such change is made nodemon will restart dev/api.js file.*
+
+In order to start the server using nodemon:
+```
+$ npm start
+```
