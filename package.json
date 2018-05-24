@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/plamenti/blockchain/issues"
   },
-  "homepage": "https://github.com/plamenti/blockchain#readme"
+  "homepage": "https://github.com/plamenti/blockchain#readme",
+  "dependencies": {
+    "sha256": "^0.2.0"
+  }
 }
