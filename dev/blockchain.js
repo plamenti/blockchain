@@ -3,6 +3,8 @@ const sha256 = require('sha256');
 function Blockchain(){
     this.chain = [];
     this.pendingTransactions = [];
+
+    // This is the genesis block that is created always after the initial creation of the Blockchain
     this.createNewBlock(100, '0', '0');
 }
 
