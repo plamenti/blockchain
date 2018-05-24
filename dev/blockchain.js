@@ -4,6 +4,7 @@ function Blockchain(){
 }
 
 /**
+ * Creating new block is mining new block!
  *  The block inside in the chain. All needed data will be stored inside this block.
  * 
  * The nonce parameter comes from a Proof-of-work. It's just a number and just proofs that the block is created.
