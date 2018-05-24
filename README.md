@@ -28,3 +28,11 @@ In order to start the server using nodemon:
 ```
 $ npm start
 ```
+4. [body-parser](https://www.npmjs.com/package/body-parser) - to parse incoming request bodies in a middleware before your handlers, available under the req.body property.
+
+*In order to use body-parser add:*
+```
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+```
+*For more information check [body-parser](https://www.npmjs.com/package/body-parser)!*

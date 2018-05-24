@@ -2,7 +2,6 @@ const Blockchain = require('./blockchain');
 
 const bitcoin = new Blockchain();
 
-
 // Test Genesis block
 console.log(bitcoin);
 
