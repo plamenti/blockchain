@@ -56,7 +56,6 @@ app.get('/mine', function (req, res) {
 
     const nonce = bitcoin.proofOfWork(previousBlockHash, currentBlockData);
     const blockHash = bitcoin.hashBlock(previousBlockHash, currentBlockData, nonce);
-
     const newBlock = bitcoin.createNewBlock(nonce, previousBlockHash, blockHash);
 
     const requestPromises = [];
@@ -88,10 +87,40 @@ app.get('/mine', function (req, res) {
     })
     .then(data => {
         res.json({
-            note: "New block mined successfully",
+            note: "New block mined & broadcast successfully",
             block: newBlock
         });
     });
+});
+
+app.post('/receive-new-block', function(req, res){
+    const newBlock = req.body.newBlock;
+
+    // When the other nodes receive this block they want to check a couple of things to make sure that this block is legitimate
+    // 1. Check if the previous block hash in the new block is equal to the hash in the last block in the chain
+    const lastBlock = bitcoin.lastBlock;
+    const correctHash = lastBlock.hash === newBlock.previousBlockHash;
+
+    // 2. Check if the new block has the correct index which means that the new block 
+    // should be one index above of the last block in the chain
+    const correctIndex = lastBlock['index'] + 1 === newBlock['index'];
+
+    // If the new block  legitimate will be accepted in the chain
+    // If it's not legitimate it will be simply rejected
+    if(correctHash && correctIndex){
+        bitcoin.chain.push(newBlock);
+        bitcoin.pendingTransactions = [];
+        res.json({
+            note: 'New block received and accepted.',
+            newBlock: newBlock
+        });
+    } else{
+        res.json({
+            note: 'New block rejected.',
+            newBlock: newBlock
+        });
+    }
+
 });
 
 // Register a node to itself and broadcast it the rest nodes in the network
