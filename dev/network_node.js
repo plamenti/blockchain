@@ -81,7 +81,14 @@ app.post('/register-and-broadcast-node', function(req, res){
 
 // Register a node with the network
 app.post('/register-node', function(req, res){
+    const newNodeUrl = req.body.newNodeUrl;
 
+    if(bitcoin.networksNodes.indexOf(newNodeUrl) == -1
+        && bitcoin.currentNodeUrl !== newNodeUrl){
+        bitcoin.networksNodes.push(newNodeUrl);
+    }
+
+    res.json({note: 'New node registered successfully.'});
 });
 
 // Register multiple nodes at once
