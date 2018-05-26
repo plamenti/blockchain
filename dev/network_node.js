@@ -50,8 +50,8 @@ app.post('/register-and-broadcast-node', function(req, res){
     }
     
     const regNodesPromises = [];
+    // hit the /register-node endpoint of every single node in the network
     bitcoin.networkNodes.forEach(networkNodeUrl => {
-        // hit the /register-node endpoint
         const requestOptions = {
             uri: networkNodeUrl + '/register-node',
             method: 'POST',
@@ -62,6 +62,7 @@ app.post('/register-and-broadcast-node', function(req, res){
         regNodesPromises.push(rp(requestOptions));
     });
 
+    // Register all nodes to the new added node and the new node to all other nodes in the network
     Promise.all(regNodesPromises)
     .then(data =>{
         const bulkRegisterOptions = {
