@@ -10,7 +10,7 @@ node.js
 So to build this decentralized blockchain network many different instances of the API should be made and each instance of the API is going to be a network node in the blockchain network and they are all going to work together to host the blockchain.
 
 ## How to use the project ##
-Clone the project and in teh terminal navigate to the Blockchain folder. All commands against node.js should be executed from this folder - e.g. 
+Clone the project and in the terminal navigate to the Blockchain folder. All commands against node.js should be executed from this folder - e.g. 
 ```
 $ npm run node_1
 ```
@@ -28,9 +28,9 @@ Example how to add a new node:
 "node_6": "nodemon --watch dev -e js dev/network_node.js 3006 http://localhost:3006"
 ```
 
-*This means that **nodemon** will start the node at URI http://localhost and port 3006 and will restart it after every one change of a file that is in **dev** folder and has extension **js**.*
+*This means that **nodemon** will start the node at URI http://localhost and port 3006 and will restart it after every one change of any one file that is in **dev** folder and has extension **js**.*
 
-In order to run all nodes open a different terminal for every one node and type the example in p.3 (start the server using nodemon).
+In order to run all nodes open a different terminal for every one node and type the example in Section **Additional notes, p.3** (start the server using nodemon).
 
 In order to connect all different nodes in one network create a POST request (e.g. using Postman).
 The POST request should be against *<http://any_one_existing_node_url/register-and-broadcast-node>* endpoint.
@@ -49,7 +49,7 @@ Body:
     "newNodeUrl": "http://localhost:3002"
 }
 ``` 
-Run such request for every one node that want to add to network.
+Run such request for every one node that want to add to network. After executing all requests everyone node in the network will be connected to all other nodes.
 
 In order to create a transaction and broadcast it to the all network create a POST request (e.g. using Postman).
 The POST request should be against *<http://any_one_existing_node_url/transaction/broadcast>* endpoint.
@@ -72,7 +72,7 @@ Body:
 	"recipient": "3001W34KLKLKSAASSALDKLSDKSDKSL"
 }
 ```
-After executing the request the created transaction should be present in every one node!
+After executing this request the created transaction should be present in every one node!
 
 ### Additional notes ###
 In order to install some npm library navigate to root dir and type for example:
