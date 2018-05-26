@@ -22,12 +22,18 @@ $ node dev/api.js
 ```
 3. [nodemon](https://www.npmjs.com/package/nodemon) - to watch for file changes and automatically to restart your node application if there is any.
 
-*In **package.json** in object **scripts** add "start": "nodemon --watch dev -e js dev/api.js". This mean that when **start** command is run in the console nodemon will **watch** the **dev** folder for any change made in file with **js** extension. When such change is made nodemon will restart dev/api.js file.*
+*In **package.json** in object **scripts** add "<node_name>": "nodemon --watch dev -e js dev/api.js". This mean that when **npm run node_name** command is put in the console nodemon will **watch** the **dev** folder for any change made in file with **js** extension. When such change is made nodemon will restart dev/network_node.js file.*
 
-In order to start the server using nodemon:
+In order to start the server using nodemon on some node:
 ```
-$ npm start
+/*
+    node_1 is the name of the node in package.json, scripts section
+*/
+
+$ npm run node_1  
 ```
+To run multiple nodes execute the above command in different terminal with the corresponding node name.
+
 4. [body-parser](https://www.npmjs.com/package/body-parser) - to parse incoming request bodies in a middleware before your handlers, available under the req.body property.
 
 *In order to use body-parser add:*
