@@ -98,7 +98,7 @@ app.post('/receive-new-block', function(req, res){
 
     // When the other nodes receive this block they want to check a couple of things to make sure that this block is legitimate
     // 1. Check if the previous block hash in the new block is equal to the hash in the last block in the chain
-    const lastBlock = bitcoin.lastBlock;
+    const lastBlock = bitcoin.getLastBlock();
     const correctHash = lastBlock.hash === newBlock.previousBlockHash;
 
     // 2. Check if the new block has the correct index which means that the new block 

@@ -30,9 +30,11 @@ Example how to add a new node:
 
 *This means that **nodemon** will start the node at URI http://localhost and port 3006 and will restart it after every one change of any one file that is in **dev** folder and has extension **js**.*
 
-In order to run all nodes open a different terminal for every one node and type the example in Section **Additional notes, p.3** (start the server using nodemon).
+### In order to run all nodes ###
+open a different terminal for every one node and type the example in Section **Additional notes, p.3** (start the server using nodemon).
 
-In order to connect all different nodes in one network create a POST request (e.g. using Postman).
+### In order to connect all different nodes in one network ###
+create a POST request (e.g. using Postman).
 The POST request should be against *<http://any_one_existing_node_url/register-and-broadcast-node>* endpoint.
 In the JSON body of the request put an object with property **newNodeUrl** and value the url of the node that want to connect to the network. For example:
 ```
@@ -74,7 +76,12 @@ Body:
 ```
 After executing this request the created transaction should be present in every one node!
 
-### Additional notes ###
+### In order to mine some block ###
+just navigate to *<http://any_one_existing_node_url/mine>*
+
+Then the new block should b mined & broadcast successfully.
+
+## Additional notes ##
 In order to install some npm library navigate to root dir and type for example:
 
 ```
