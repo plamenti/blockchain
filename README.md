@@ -8,10 +8,10 @@ $ node dev/test.js
 ```
 In order to install some npm library navigate to root dir and type for example:
 
-*Use **--save** in order to save the library as a dependency* 
 ```
 npm i sha256 --save
 ```
+*Use **--save** in order to save the library as a dependency* 
 
 Used npm libraries:
 
