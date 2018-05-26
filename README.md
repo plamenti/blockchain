@@ -47,5 +47,5 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 1. [request-promise](https://www.npmjs.com/package/request-promise) - to make requests to all other nodes in the network
 
-### All black chain technology should be hosted across a decentralized the network ###
+### All black chain technology should be hosted across a decentralized network ###
 So to build this decentralized blockchain network many different instances of the API should be made and each instance of the API is going to be a network node in the blockchain network and they are all going to work together to host the blockchain.

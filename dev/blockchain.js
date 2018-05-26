@@ -4,7 +4,7 @@ const currentNodeUrl = process.argv[3];
 function Blockchain(){
     this.chain = [];
     this.pendingTransactions = [];
-    this.networksNodes = [];
+    this.networkNodes = [];
     this.currentNodeUrl = currentNodeUrl;
 
     // This is the genesis block that is created always after the initial creation of the Blockchain
