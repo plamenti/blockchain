@@ -2,10 +2,79 @@
 
 The project contains the code for creating a Blockchain and decentralized network in JavaScript programming language.
 
-In order ot run the code in the test file:
+## Prerequisites ##
+node.js
+
+## Important ##
+### All blockchain technology should be hosted across a decentralized network ###
+So to build this decentralized blockchain network many different instances of the API should be made and each instance of the API is going to be a network node in the blockchain network and they are all going to work together to host the blockchain.
+
+## How to use the project ##
+Clone the project and in teh terminal navigate to the Blockchain folder. All commands against node.js should be executed from this folder - e.g. 
 ```
-$ node dev/test.js
+$ npm run node_1
 ```
+or
+```
+$ npm i sha256 --save
+```
+
+This project has 5 nodes - node_1, node_2, node_3, node_4 and node_5. 
+In order to add more or remove some of the existing nodes open package.json and in **scripts** section add one or remove one.
+
+Example how to add a new node:
+
+```
+"node_6": "nodemon --watch dev -e js dev/network_node.js 3006 http://localhost:3006"
+```
+
+*This means that **nodemon** will start the node at URI http://localhost and port 3006 and will restart it after every one change of a file that is in **dev** folder and has extension **js**.*
+
+In order to run all nodes open a different terminal for every one node and type the example in p.3 (start the server using nodemon).
+
+In order to connect all different nodes in one network create a POST request (e.g. using Postman).
+The POST request should be against *<http://any_one_existing_node_url/register-and-broadcast-node>* endpoint.
+In the JSON body of the request put an object with property **newNodeUrl** and value the url of the node that want to connect to the network. For example:
+```
+Url:
+http://localhost:3001/register-and-broadcast-node
+
+Method: POST
+
+Headers:
+Content-Type : application/json
+
+Body:
+{
+    "newNodeUrl": "http://localhost:3002"
+}
+``` 
+Run such request for every one node that want to add to network.
+
+In order to create a transaction and broadcast it to the all network create a POST request (e.g. using Postman).
+The POST request should be against *<http://any_one_existing_node_url/transaction/broadcast>* endpoint.
+In the JSON body of the request put an object with the transaction data. The object should have the properties **amount**, **sender** and **recipient**:
+
+For example:
+```
+Url:
+http://localhost:3001/transaction/broadcast
+
+Method: POST
+
+Headers:
+Content-Type : application/json
+
+Body:
+{
+	"amount": 10,
+	"sender": "3001W21SHDGHGASSAADJS324DGJSDGJS",
+	"recipient": "3001W34KLKLKSAASSALDKLSDKSDKSL"
+}
+```
+After executing the request the created transaction should be present in every one node!
+
+### Additional notes ###
 In order to install some npm library navigate to root dir and type for example:
 
 ```
@@ -46,6 +115,3 @@ app.use(bodyParser.urlencoded({extended: false}));
 5. [uuid](https://www.npmjs.com/package/uuid) - to create some unique values.
 
 1. [request-promise](https://www.npmjs.com/package/request-promise) - to make requests to all other nodes in the network
-
-### All black chain technology should be hosted across a decentralized network ###
-So to build this decentralized blockchain network many different instances of the API should be made and each instance of the API is going to be a network node in the blockchain network and they are all going to work together to host the blockchain.
