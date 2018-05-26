@@ -1,6 +1,6 @@
 # Building Blockchain In JavaScript #
 
-The project contains the code for creating a Blockchain and decentralized network in the JavaScript programming language.
+The project contains the code for creating a Blockchain and decentralized network in JavaScript programming language.
 
 In order ot run the code in the test file:
 ```
