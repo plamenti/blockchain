@@ -53,7 +53,8 @@ Body:
 ``` 
 Run such request for every one node that want to add to network. After executing all requests everyone node in the network will be connected to all other nodes.
 
-In order to create a transaction and broadcast it to the all network create a POST request (e.g. using Postman).
+### In order to create a transaction and broadcast it to the all network ###
+ create a POST request (e.g. using Postman).
 The POST request should be against *<http://any_one_existing_node_url/transaction/broadcast>* endpoint.
 In the JSON body of the request put an object with the transaction data. The object should have the properties **amount**, **sender** and **recipient**:
 
@@ -79,7 +80,36 @@ After executing this request the created transaction should be present in every 
 ### In order to mine some block ###
 just navigate to *<http://any_one_existing_node_url/mine>*
 
-Then the new block should b mined & broadcast successfully.
+Then the new block should be mined & broadcast successfully.
+
+### In order to get some block by its hash ###
+create GET request (e.g. using Postman).
+The GET request should be against *<http://any_one_existing_node_url/block/:blockHash>* endpoint.
+
+For example:
+```
+http://localhost:3001/block/0000b9135b054d1131392c9eb9d03b0111d4b516824a03c35639e12858912100
+```
+
+### In order to get some transaction by its id ###
+create GET request (e.g. using Postman).
+The GET request should be against *<http://any_one_existing_node_url/transaction/:transactionId>* endpoint.
+
+For example:
+```
+http://localhost:3001/transaction/46d6f32061bf11e8b46a1fd7e15c8f89
+```
+
+### In order to get some address ###
+create GET request (e.g. using Postman).
+The GET request should be against *<http://any_one_existing_node_url/address/:address>* endpoint.
+The address should be **recipient** or **sender** property from **transactions**.
+This request also calculates the total amount of the blockchain amount adding received amounts via transactions and subtracting sent amounts via transactions.
+
+For example:
+```
+http://localhost:3001/address/W21SHDGHGASSAADJS324DGJSDGJS
+```
 
 ## Additional notes ##
 In order to install some npm library navigate to root dir and type for example:
