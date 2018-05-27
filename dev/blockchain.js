@@ -160,4 +160,16 @@ let validChain = true;
     return validChain;
 };
 
+Blockchain.prototype.getBlock = function(blockHash){
+    let correctBlock = null;
+
+    this.chain.forEach(block => {
+        if(block.hash === blockHash){
+            correctBlock = block;
+        }
+    });
+
+    return correctBlock;
+}
+
 module.exports = Blockchain;
