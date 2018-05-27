@@ -124,4 +124,40 @@ Blockchain.prototype.proofOfWork = function(previousBlockHash, currentBlockData)
     return nonce;
 }
 
+Blockchain.prototype.chainIsValid = function(blockchain){
+let validChain = true;
+
+    // Start loop from position 1 since at position 0 is genesis block.
+    // Genesis block will be validated separately
+    for(var i = 1; i < blockchain.length; i++){
+        const currentBlock = blockchain[i];
+        const prevBlock = blockchain[i-1];
+        const currentBlockData = {
+            transactions: currentBlock['transactions'],
+            index: currentBlock['index']
+        };
+
+        const blockHash = this.hashBlock(prevBlock['hash'], currentBlockData, currentBlock['nonce']);
+        if(blockHash.substring(0,4) !== '0000'){
+            validChain = false;
+        }
+
+        if(currentBlock['previousBlockHash'] !== prevBlock['hash']){
+            validChain = false;
+        }
+    }
+
+    // Check genesis block since it is special case
+    const genesisBlock = blockchain[0];
+    const correctNonce = genesisBlock['nonce'] === 100;
+    const correctPreviousBlockHash = genesisBlock['previousBlockHash'] === '0';
+    const correctHash = genesisBlock['hash'] === '0';
+    const correctTransactions = genesisBlock['transactions'].length ===0;
+    if(!correctNonce || !correctPreviousBlockHash || !correctHash || !correctTransactions){
+        validChain = false;
+    }
+
+    return validChain;
+};
+
 module.exports = Blockchain;
