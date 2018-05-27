@@ -259,6 +259,10 @@ app.get('/address/:address', function(req, res){
         address: addressData
     });
 });
+
+app.get('/block-explorer', function(req, res){
+    res.sendFile('./block_explorer/index.html', {root: __dirname});
+});
  
 app.listen(port, function(){
     console.log(`Listening on port ${port}...`);
